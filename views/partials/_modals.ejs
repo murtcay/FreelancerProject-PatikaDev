@@ -1,0 +1,42 @@
+ <!-- Portfolio Modal 1-->
+ <% for(let i = 0; i < portfolios.length; i++) { %>
+    <div class="portfolio-modal modal fade" id="portfolioModal<%= portfolios[i]._id %>" tabindex="-1" aria-labelledby="portfolioModal<%= portfolios[i]._id %>" aria-hidden="true">
+       <div class="modal-dialog modal-xl">
+           <div class="modal-content">
+               <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+               <div class="modal-body text-center pb-5">
+                   <div class="container">
+                       <div class="row justify-content-center">
+                           <div class="col-lg-8">
+                               <!-- Portfolio Modal - Title-->
+                               <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0"><%= portfolios[i].title %></h2>
+                               <!-- Icon Divider-->
+                               <div class="divider-custom">
+                                   <div class="divider-custom-line"></div>
+                                   <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                   <div class="divider-custom-line"></div>
+                               </div>
+                               <!-- Portfolio Modal - Image-->
+                               <img class="img-fluid rounded mb-5" src="<%= portfolios[i].image %>" alt="..." />
+                               <!-- Portfolio Modal - Text-->
+                               <p class="mb-4"><%= portfolios[i].description %></p>
+                               <div class="form-floating mb-3">
+                                <a class="mx-2 btn btn-warning btn-lg mb-2 mt-3 mx-3" type="button" data-bs-toggle="modal" href="#editPortfolioModal<%= portfolios[i]._id%>">
+                                    <i class="far fa-edit me-1"></i>
+                                    Edit    
+                                </a>
+                                <a class="mx-2 btn btn-danger btn-lg mb-2 mt-3 mx-3" href="/delete/<%= portfolios[i]._id%>?_method=DELETE"  onclick="return confirm('Are you sure?');" >
+                                    <i class="fas fa-trash-alt me-1"></i>
+                                    Delete
+                                </a>
+                            </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <%- include('./modals/_editPortfolioModal', {portfolio: portfolios[i]}) -%>
+   <% } %>
+ <%- include('./modals/_addPortfolioModal') -%>

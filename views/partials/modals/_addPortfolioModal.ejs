@@ -1,0 +1,50 @@
+<div class="portfolio-modal modal fade" id="portfolioAddModal" tabindex="-1" aria-labelledby="portfolioAddModal" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0"><button class="btn-close" type="reset" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <!-- Portfolio Modal - Title-->
+                            <h3 class="portfolio-modal-title text-secondary text-uppercase mb-0"> Add to Portfolio</h3>
+                            <!-- Icon Divider-->
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                <div class="divider-custom-line"></div>
+                            </div>
+                            
+                            
+                            <form id="addPortfolioForm" method="post" action="/add" enctype="multipart/form-data">
+                                <!-- Name input-->
+                                <div class="form-floating mb-3">
+                                    <input name="title" class="form-control"  type="text" placeholder="Title..." required />
+                                    <label for="title">Title</label>
+                                    <div class="invalid-feedback" data-sb-feedback="title:required">A title is required.</div>
+                                </div>
+                                <!-- Message input-->
+                                <div class="form-floating mb-3">
+                                    <textarea name="description" class="form-control"  type="text" placeholder="Description..." style="height: 16rem" required></textarea>
+                                    <label for="description">Description</label>
+                                    <div class="invalid-feedback" data-sb-feedback="description:required">A description is required.</div>
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="file" id="image-addPortfolio" name="image" onchange="PreviewImage('addPortfolio');" data-buttonText="Your label here." class="img-fluid d-block mx-0 rounded-0 ">
+                                </div>
+                                <img class="img-fluid rounded mb-5" src="" id="uploaded-image-addPortfolio" />
+
+                                <div class="form-floating mb-3">
+                                    <button class="mx-2 btn btn-warning btn-lg mb-2 mt-3 mx-3" type="submit"><i class="far fa-plus-square me-1"></i>Add</button>
+                                    <button class="mx-2 btn btn-danger btn-lg mb-2 mt-3 mx-3" type="reset" onclick="PreviewImage('addPortfolio', true);" ><i class="fas fa-times me-1"></i>   Clear</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
